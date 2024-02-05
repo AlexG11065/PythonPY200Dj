@@ -18,11 +18,10 @@ def template_view(request):
             my_text = form.cleaned_data.get("my_text")  # Получили очищенные данные
             my_select = form.cleaned_data.get("my_select")
             my_textarea = form.cleaned_data.get("my_textarea")
-
-            # TODO Получите остальные данные из формы и сделайте необходимые обработки (если они нужны)
-
-            # TODO Верните HttpRequest или JsonResponse с данными
-
+            password = form.cleaned_data.get("password")
+            email = form.cleaned_data.get("email")
+            data = form.cleaned_data.get("data")
+            return JsonResponse(form.cleaned_data, json_dumps_params={"ensure_ascii": False})
         return render(request, 'app/template_form.html', context={"form": form})
 
 

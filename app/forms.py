@@ -13,6 +13,12 @@ class TemplateForm(forms.Form):
     ))
     # widget тоже нужен только для отображения в HTML
     my_textarea = forms.CharField(widget=forms.Textarea)
+    email = forms.EmailField()
+    password = forms.CharField(widget=forms.PasswordInput)
+    data = forms.DateField()
+    number = forms.IntegerField()
+    checkbox = forms.BooleanField(required=True)
+
 
     # TODO Опишите поля (поле для email, пароля, даты, целого числа, переключателя) и их параметры для вашего шаблона формы
 
