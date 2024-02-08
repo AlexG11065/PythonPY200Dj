@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'app',
     'social_django',
+    'landing',
 ]
 
 AUTHENTICATION_BACKENDS = (

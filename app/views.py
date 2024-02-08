@@ -1,9 +1,9 @@
-from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
 from django.shortcuts import render
 from .models import get_random_text
-from django.http import HttpRequest, JsonResponse
+from django.http import JsonResponse
 from django.shortcuts import redirect
-from django.contrib.auth import login, logout, authenticate
+from django.contrib.auth import login, logout
 from .forms import TemplateForm, CustomUserCreationForm
 from django.views import View
 from django.views.generic import TemplateView
@@ -20,6 +20,15 @@ class MyFormView(FormView):
         return JsonResponse(form.cleaned_data)
 
 
+# # Заголовок HTTP_X_FORWARDED_FOR используется для идентификации исходного IP-адреса клиента,
+# # который подключается к веб-серверу через HTTP-прокси или балансировщик нагрузки.
+# x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
+# if x_forwarded_for:
+#     ip = x_forwarded_for.split(',')[0]  # Получение IP
+# else:
+#     ip = request.META.get('REMOTE_ADDR')  # Получение IP
+#
+# user_agent = request.META.get('HTTP_USER_AGENT')
 class MyTemplView(TemplateView):
     template_name = 'app/template_form.html'
 
